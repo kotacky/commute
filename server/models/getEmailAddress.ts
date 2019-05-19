@@ -5,8 +5,7 @@ postgres.connect()
 
 const getMailAddressQuery = {
     name: 'fetch-sample',
-    text: 'select mail_address1 from t_employee_datas where user_id = $1',
-    values: ['0034']
+    text: 'select mail_address1 from t_employee_datas where project_end_date - 14 <= current_date',
 }
 
 postgres.query(getMailAddressQuery)
@@ -17,7 +16,7 @@ postgres.query(getMailAddressQuery)
       let employeeDatas = []
       for (let i = 0 ; i < res.rowCount; i++) {
         let data = {
-          "mailAdress": res.rows[i].mail_address1
+          "mailAddress": res.rows[i].mail_address1
         };
         employeeDatas.push(data);
       };
