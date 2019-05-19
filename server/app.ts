@@ -11,6 +11,7 @@ var { json, urlencoded } = require("body-parser");
 var compression = require("compression");
 var userRouter = require("./routes/users");
 var getEmailAddress = require("./models/getEmailAddress");
+var notionSlack = require("./models/notionSlack");
 
 var app = express();
 app.disable('x-powered-by');
