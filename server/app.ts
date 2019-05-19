@@ -10,7 +10,7 @@ var path = require("path");
 var { json, urlencoded } = require("body-parser");
 var compression = require("compression");
 var userRouter = require("./routes/users");
-var getUserAdress = require("./db/getUserAdress");
+var getEmailAddress = require("./models/getEmailAddress");
 
 var app = express();
 app.disable('x-powered-by');

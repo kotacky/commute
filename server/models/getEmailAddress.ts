@@ -1,38 +1,29 @@
-var { Client } = require('pg');
+const postgres = require('../db/postgresConnection');
 var fs = require('fs');
 
-var client = new Client({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'postgres',
-    password: 'root',
-    port: 5432
-})
+postgres.connect()
 
-
-client.connect()
-
-const query = {
+const getMailAddressQuery = {
     name: 'fetch-sample',
     text: 'select mail_address1 from t_employee_datas where user_id = $1',
     values: ['0034']
 }
 
-client.query(query)
+postgres.query(getMailAddressQuery)
     .then(res => {
       console.log("DB_ACSESS_SUCSESS!!!")
-      client.end()
+      postgres.end()
       // 取得データ抽出
-      var employeeDatas = []
-      for (var i = 0 ; i < res.rowCount; i++) {
-        var data = {
+      let employeeDatas = []
+      for (let i = 0 ; i < res.rowCount; i++) {
+        let data = {
           "mailAdress": res.rows[i].mail_address1
         };
         employeeDatas.push(data);
       };
       console.log(employeeDatas);
       // JSONファイル作成
-      fs.writeFile('./server/json/employee.json', JSON.stringify(employeeDatas, null), function(err, res) {
+      fs.writeFile('./server/output/employee.json', JSON.stringify(employeeDatas, null), function(err, res) {
         if (err) {
           console.log(err)
         } else {
