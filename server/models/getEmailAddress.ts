@@ -5,7 +5,7 @@ postgres.connect()
 
 const getMailAddressQuery = {
     name: 'fetch-sample',
-    text: 'select mail_address1 from t_employee_datas where project_end_data - 14 <= current_date',
+    text: 'select mail_address1 from t_employee_datas where project_end_date - 14 <= current_date',
 }
 
 postgres.query(getMailAddressQuery)

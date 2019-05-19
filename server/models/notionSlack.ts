@@ -12,7 +12,7 @@ request({
     url: 'https://slack.com/api/users.list',
     method: 'post',
     form: {
-        token:'xoxp-25758874455-28594682354-639914877072-284746e2010d361acdfbdc7a7da2a3ac'
+        token:''
     }
     }, (error, response, body) => {
         // 実際に使う内容はbody。JSON形式にparseする。
@@ -34,7 +34,7 @@ request({
             url: 'https://slack.com/api/chat.postMessage',
             method: 'POST',
             form: {
-                token: 'xoxp-25758874455-28594682354-639914877072-284746e2010d361acdfbdc7a7da2a3ac',
+                token: '',
                 channel: user,
                 text: 'テスト'
             }
