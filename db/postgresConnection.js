@@ -1,5 +1,5 @@
-var Client = require('pg').Client;
-var pgConnection = new Client({
+const Client = require('pg').Client;
+const pgConnection = new Client({
     user: 'postgres',
     host: 'localhost',
     database: 'postgres',
