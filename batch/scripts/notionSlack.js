@@ -4,8 +4,8 @@ const _ = require('lodash');
 let usersList;
 // 定期券の期限が切れるユーザのメールアドレスのリスト。実際はDBから取得したファイルを読みこんだものを使う。
 const expiredEmailAddressList = [
-    's-sato@wiss1.co.jp'
-];
+    {"mailAddress":"s-sato@wiss1.co.jp"}]
+;
 request({
     url: 'https://slack.com/api/users.list',
     method: 'post',
@@ -24,7 +24,7 @@ request({
     expiredEmailAddressList.forEach(function (expired) {
         // lodashのfindメソッドで、APIを使用して取得したユーザのリストについて、メールアドレスがexpiredとマッチするユーザデータを探す
         let user = _.find(usersList, function (user) {
-            return _.includes(user['profile'].email, expired);
+            return _.includes(user['profile'].email, expired['mailAddress']);
         });
         // 通知用に、ユーザ名に@をつける
         user = '@' + user['name'];
@@ -37,7 +37,7 @@ request({
                 text: 'テスト'
             }
         }, function (error, response, body) {
-            console.log(response);
+          //  console.log(response);
         });
     });
 });
