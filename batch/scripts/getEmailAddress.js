@@ -29,4 +29,3 @@ postgres.query(getMailAddressQuery)
     });
 })
     .catch(function (e) { return console.error(e.stack); });
-//# sourceMappingURL=getEmailAddress.js.map
