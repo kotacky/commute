@@ -1,16 +1,16 @@
 // node_modulesのrequest-promise
 const request = require('request-promise');
 const _ = require('lodash');
+const emailAddressJson = require('../output/employee.json');
+const userToken = '';
 let usersList;
 // 定期券の期限が切れるユーザのメールアドレスのリスト。実際はDBから取得したファイルを読みこんだものを使う。
-const expiredEmailAddressList = [
-    {"mailAddress":"s-sato@wiss1.co.jp"}]
-;
+const expiredEmailAddressList = emailAddressJson;
 request({
     url: 'https://slack.com/api/users.list',
     method: 'post',
     form: {
-        token: ''
+        token: userToken
     }
 }, function (error, response, body) {
     // 実際に使う内容はbody。JSON形式にparseする。
@@ -32,7 +32,7 @@ request({
             url: 'https://slack.com/api/chat.postMessage',
             method: 'POST',
             form: {
-                token: '',
+                token: userToken,
                 channel: user,
                 text: 'テスト'
             }
@@ -41,4 +41,3 @@ request({
         });
     });
 });
-//# sourceMappingURL=notionSlack.js.map
