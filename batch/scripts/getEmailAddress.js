@@ -17,7 +17,6 @@ postgres.query(getMailAddressQuery)
         };
         employeeDatas.push(data);
     };
-    console.log(employeeDatas);
     // JSONファイル作成
     fs.writeFile('../output/employee.json', JSON.stringify(employeeDatas, null), function (err, res) {
         if (err) {
