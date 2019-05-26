@@ -1,8 +1,9 @@
 // node_modulesのrequest-promise
 const request = require('request-promise');
 const _ = require('lodash');
+var fs =  require('fs');
 const emailAddressJson = require('../output/employee.json');
-const userToken = '';
+const userToken = fs.readFileSync('../token.txt');
 let usersList;
 // 定期券の期限が切れるユーザのメールアドレスのリスト。実際はDBから取得したファイルを読みこんだものを使う。
 const expiredEmailAddressList = emailAddressJson;
