@@ -1,12 +1,12 @@
 const request = require('request-promise');
 const _ = require('lodash');
+process.chdir(__dirname);
 const fs =  require('fs');
 
 // 定期券の期限が切れるユーザのメールアドレスのリスト。実際はDBから取得したファイルを読みこんだものを使う
 const emailAddressJson = require('../output/employee.json');
 const userToken = fs.readFileSync('../token.txt', 'utf-8');
 const expiredEmailAddressList = emailAddressJson;
-process.chdir(__dirname);
 
 // ユーザーリストを取得するための設定
 const users_list = function(userToken) {
