@@ -6,6 +6,7 @@ const fs =  require('fs');
 const emailAddressJson = require('../output/employee.json');
 const userToken = fs.readFileSync('../token.txt', 'utf-8');
 const expiredEmailAddressList = emailAddressJson;
+process.chdir(__dirname);
 
 // ユーザーリストを取得するための設定
 const users_list = function(userToken) {
