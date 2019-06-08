@@ -1,5 +1,6 @@
 const postgres = require('../../db/postgresConnection');
 var fs = require('fs');
+process.chdir(__dirname);
 postgres.connect();
 const getMailAddressQuery = {
     name: 'fetch-sample',
