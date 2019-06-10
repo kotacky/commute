@@ -44,11 +44,14 @@ request(users_list(userToken)).then(function(body) {
   let usersList = jsonbody['members'];
 
   expiredEmailAddressList.forEach(function (expired) {
+    // メールアドレスが空の場合、usersListの先頭に通知してしまうので、処理しないようにする
+    if (!expired['mailAddress']) return;
     // 期限切れのユーザを探す
     let user = _.find(usersList, function (user) {
       return _.includes(user['profile'].email, expired['mailAddress']);
     });
-
+    // ユーザーが存在しない場合、処理しないようにする
+    if (!user) return;
     // 通知用に、ユーザ名に@をつける
     user = '@' + user['name'];
 
