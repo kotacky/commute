@@ -31,7 +31,7 @@ const chat_postMessage = function(userToken, user) {
       // なぜか改行コードが入るため削除する
       token: userToken.replace(/\r?\n/g, ''),
       channel: user,
-      text: 'テスト'
+      text: 'プロジェクトの終焉が近づいています。\r\n 総務部への定期券代の申請は済んでいますか。\r\n \r\n 以下のURLから定期券代の申請を行うか\r\nプロジェクト退出予定日を更新してください。\r\nhttps://xxxxx.xxxx.xxx/xxxxx'
     }
   };
   return ret;
