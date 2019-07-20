@@ -58,7 +58,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "commute:build"
+            "browserTarget": "commute:build",
+            "port": 9001
           },
           "configurations": {
             "production": {
