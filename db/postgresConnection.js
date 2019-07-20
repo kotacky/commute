@@ -3,8 +3,7 @@ const pgConnection = new Client({
     user: 'postgres',
     host: 'localhost',
     database: 'postgres',
-    password: 'root',
+    password: 'easy',
     port: 5432
 });
 module.exports = pgConnection;
-//# sourceMappingURL=postgresConnection.js.map
